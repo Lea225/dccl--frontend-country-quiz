@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital@0;1&display=swap');
+/* Couleurs */
+:root {
+    --gradient-primary: linear-gradient(#E65895, #BC6BE8);
+    --color-primary: #393F6E;
+    --color-secondary: #E2E4F3;
+    --color-accent-dark: #343964;
+    --color-accent-light: #3E9FFF;
+    --color-danger: #DD524C;
+    --color-neutral: #8B8EAB;
+    --color-background: #FFECC8;
+}
+
+/* Typographie */
+:root {
+    --font-family: 'Be Vietnam Pro', sans-serif;
+    
+    --font-size-large: 24px; /* 1.5rem */
+    --font-weight-large: 600; /* Semibold */
+
+    --font-size-medium: 20px; /* 1.25rem */
+    --font-weight-medium: 500; /* Medium */
+    --font-weight-medium-semi: 600; /* Semibold */
+
+    --font-size-regular: 16px; /* 1rem */
+    --font-weight-regular-bold: 700; /* Bold */
+
+    --font-size-small: 14px; /* 0.875rem */
+    --font-weight-small: 700; /* Bold */
+}
+
+*{
+    font-family: var(--font-family);
+}
+body{
+    margin: 0;
+    display: flex;
+    height: 100vh;
+    text-align: center;
+    align-items: center;
+    background-size: cover;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-image: url('images/bg.jpg');
+}
+
+.container {
+    width: 500px;
+    padding: 2rem 10rem;
+    border-radius: 10px;
+    background-color: var(--color-primary);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    margin-bottom: 3rem;
+    color: var(--color-neutral);
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-large);
+}
+
+.steps a {
+    width: 40px;
+    margin: 0 5px;
+    padding: 6px 10px;
+    text-align: center; 
+    border-radius: 50%; 
+    text-decoration: none;
+    color: var(--color-background);
+    background-color: hsl(224, 11%, 94%, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.question {
+    padding: 2rem 0;
+    color: var(--color-background);
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-medium-semi); 
+}
+
+.possible-anwers {
+    gap: 30px; 
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+}
+
+.steps a.active {
+    transform: scale(1.1);
+    background-color: var(--color-accent-light); 
+}
+
+.active{
+    background: var(--gradient-primary);
+}
+
+.possible-anwers p {
+    margin: 0;
+    padding: 20px;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 10px;
+    transition: background 0.3s;
+    color: var(--color-background);
+    animation: fadeIn 0.5s ease-out;
+    background-color: hsl(224 , 11%, 94%, 0.2);
+}
+
+.possible-anwers p.incorrect {
+    animation: shake 0.5s ease-out;
+}
+
+.flag-img{
+    width: 130px;
+    height: 80px;
+    margin-top: 2rem;
+    border-radius: 10px;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    display: inline-block;
+    vertical-align: middle;
+    background-size: contain;
+}
+
+.icon.check {
+    animation: fadeIn 0.5s ease-out;
+    background-image: url('images/Check_round_fill.svg');
+}
+
+.icon.close {
+    animation: fadeIn 0.5s ease-out;
+    background-image: url('images/Close_round_fill.svg');
+}
+
+.congrats-div {
+    width: 250px;
+    display: none;
+    padding: 2rem;
+    margin-top: 20px;
+    border-radius: 10px;
+    color: var(--color-secondary);
+    transition: opacity 0.5s ease-in;
+    background-color: var(--color-primary);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  
+}
+
+.congrats-div.show {
+    opacity: 1;
+    display: block;
+}
+
+.congrats-div h3 {
+    font-size: var(--font-size-regular);
+    font-weight: var(--font-weight-regular-bold);
+}
+
+h3{
+    font-size: var(--font-size-large);
+}
+
+.congrats-div button {
+    border: none;
+    cursor: pointer;
+    margin-top: 2rem;
+    padding: 1rem 3rem;
+    border-radius: 10px;
+    transition: background 0.3s;
+    color: var(--color-background);
+    background: var(--gradient-primary);
+    font-size: var(--font-size-regular);
+}
+
+.congrats-div img {
+    max-width: 100%;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(0); }
+    75% { transform: translateX(5px); }
+    100% { transform: translateX(0); }
+}
+@media screen and (min-width: 769px) and (max-width: 1000px) {
+    body{
+        height: auto;
+    }
+    .container{
+        width: 450px;
+        padding: 2rem 1rem;
+    }
+    .steps a {
+        line-height: 4.5;
+    }
+    .possible-anwers{
+        grid-template-columns: 1fr;
+    }
+}
+@media screen and (max-width: 768px) { 
+    body {
+        height: auto; 
+        padding: 0 1rem;
+        background-size: cover; 
+        background-position: center; 
+    }
+
+    .container {
+        width: 90%; 
+        padding: 1rem; 
+        box-shadow: none; 
+    }
+
+    h1 {
+        font-size: var(--font-size-medium);
+        margin-bottom: 2rem; 
+    }
+
+    .steps a {
+        line-height: 4.5;
+        width: 35px;
+        height: 35px; 
+        padding: 8px; 
+        font-size: var(--font-size-small); 
+    }
+
+    .question {
+        font-size: var(--font-size-small); 
+    }
+
+    .possible-anwers {
+        grid-template-columns: 1fr; 
+        gap: 10px; 
+    }
+
+    .flag-img {
+        width: 100%;
+        height: auto; 
+    }
+
+    .congrats-div {
+        width: 100%;
+        padding: 1rem; 
+    }
+
+    .congrats-div button {
+        padding: 0.5rem 1.5rem; 
+        font-size: var(--font-size-small); 
+    }
+}
