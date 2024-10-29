@@ -9,10 +9,7 @@
     --color-danger: #DD524C;
     --color-neutral: #8B8EAB;
     --color-background: #FFECC8;
-}
 
-/* Typographie */
-:root {
     --font-family: 'Be Vietnam Pro', sans-serif;
     
     --font-size-large: 24px; /* 1.5rem */
@@ -35,7 +32,7 @@
 body{
     margin: 0;
     display: flex;
-    height: 100vh;
+    min-height: 100vh;
     text-align: center;
     align-items: center;
     background-size: cover;
@@ -43,7 +40,9 @@ body{
     background-repeat: no-repeat;
     background-image: url('images/bg.jpg');
 }
-
+section{
+    margin: 2rem 0;
+}
 .container {
     width: 500px;
     padding: 2rem 10rem;
@@ -252,7 +251,7 @@ h3{
     }
 
     .congrats-div {
-        width: 100%;
+        width: 90%;
         padding: 1rem; 
     }
 
